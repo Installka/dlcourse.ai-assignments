@@ -1,3 +1,5 @@
 
 A2. Neural networks. PyTorch/data/test_32x32.mat
 A2. Neural networks. PyTorch/data/train_32x32.mat
+A1. KNN, linear classifier/data/train_32x32.mat
+A1. KNN, linear classifier/data/test_32x32.mat
