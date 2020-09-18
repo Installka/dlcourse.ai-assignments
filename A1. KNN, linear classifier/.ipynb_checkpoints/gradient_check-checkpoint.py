@@ -36,13 +36,13 @@ def check_gradient(f, x, delta=1e-5, tol = 1e-4):
         
         h = 1e-10
         
-        argument_h = np.ones_like(x)
-        argument = np.ones_like(x)
+        argument_plus_h = x.copy()
+        argument_minus_h = x.copy()
         
-        argument_h[ix] = x[ix] + h
-        argument[ix] = x[ix]
+        argument_plus_h[ix] = x[ix] + h
+        argument_minus_h[ix] = x[ix] - h
         
-        numeric_grad_at_ix = (f(argument_h)[0] - f(argument)[0]) / h
+        numeric_grad_at_ix = (f(argument_plus_h)[0] - f(argument_minus_h)[0]) / (2 * h)
 
         # TODO compute value of numeric gradient of f to idx
         if not np.isclose(numeric_grad_at_ix, analytic_grad_at_ix, tol):
